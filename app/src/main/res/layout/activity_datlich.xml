@@ -105,7 +105,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="massage mặt 30k"
+                android:text="massage mặt  + gội đầu 30k "
                 android:layout_marginStart="22dp"
                 />
 

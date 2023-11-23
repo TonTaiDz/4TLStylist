@@ -20,22 +20,55 @@ public class DbHelper extends SQLiteOpenHelper {
          */
 
 
-        String tNguoiDunng = "CREATE TABLE NGUOIDUNG(mand integer primary key autoincrement, tennd text, sdt text, diachi text , tendangnhap text, matKhau text, role text)";
-            sqLiteDatabase.execSQL(tNguoiDunng);
+        String tNguoiDunng = "CREATE TABLE NGUOIDUNG(" +
+                "idnguoidung integer primary key autoincrement," +
+                " ten text," +
+                " diachi text," +
+                " sdt text ," +
+                " email text," +
+                " matKhau text," +
+                " role integer)";
+        sqLiteDatabase.execSQL(tNguoiDunng);
             // data mau nguoi dung
-            sqLiteDatabase.execSQL("INSERT INTO NGUOIDUNG VALUES(1,'Nguyễn Tấn Tài','093485732','Q12 TP.HCM','taint','123',1)," +
-                                                                "(2,'Nguyễn Hoài Đức','092374334','Tân Bình','ducnh','456',2),"+
-                                                                "(3,'Nguyễn Văn Thịnh','09234544','Đak Song','thinhnv','789',3)");
+            sqLiteDatabase.execSQL("INSERT INTO NGUOIDUNG VALUES(1,'Tấn Tài','Q12','0789789789','tai@gmail.com','123',1)," +
+                                                                "(2,'Thế Dinh','Q12','0123123123','vinh@gmail.com','456',1),"+
+                                                                "(3,'Thanh Thiện','Tân Bình','0123123123','thien@gmail.com','789',1),"+
+                                                                "(4,'Chí Hiếu','Gò Vấp','0456456456','hieu@gmail.com','789',1)");
 
-            String tPhieuMuon = "CREATE TABLE PHIEUMUON(mapm integer primary key autoincrement, ngaymuon text, ngaytra text, mand integer references NGUOIDUNG(mand))";
-            sqLiteDatabase.execSQL(tPhieuMuon);
-            // data mau phieu muon
-            sqLiteDatabase.execSQL("INSERT INTO PHIEUMUON VALUES(1, '20/9/2023', '26/9/2023',1)");
 
-            String tCTPM = "CREATE TABLE CTPM(mactpm integer primary key autoincrement ,mapm integer references PHIEUMUON(mapm), masach integer references SACH(masach), soluong interger)";
-            sqLiteDatabase.execSQL(tCTPM);
-            //data mau CTPM
-            sqLiteDatabase.execSQL("INSERT INTO CTPM VALUES(1,1,1,2),(2,1,2,1)");
+
+        String tLichDat = "CREATE TABLE LICHDAT(idlichdat integer primary key autoincrement," +
+                "thoigian text," +
+                "trangthai text," +
+                "idnguoidung integer references NGUOIDUNG(idnguoidung))";
+        sqLiteDatabase.execSQL(tLichDat);
+        // data mau lich dat
+        sqLiteDatabase.execSQL("INSERT INTO LICHDAT VALUES(1,'12h30p','Đã xong',1)," +
+                                                          "(2,'12h50p','Chưa Nhận',2),"+
+                                                          "(3,'1h30p','Chưa Nhận',3)");
+
+
+
+
+        String tDichVu = "CREATE TABLE DICHVU( iddichvu INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "tendichvu TEXT," +
+                "gia INTEGER)";
+        sqLiteDatabase.execSQL(tDichVu);
+        //data mau DichVU
+        sqLiteDatabase.execSQL("INSERT INTO DICHVU VALUES(1,'Cắt tóc',30000)," +
+                                                        "(2,'Massage mặt + gội đầu',30000),"+
+                                                        "(3,'Nhuộm  tóc',120000)");
+
+        String tCTLichDat = "CREATE TABLE CTLICHDAT(idlichdat INTEGER REFERENCES LICHDAT(idlicdat)," +
+                "iddichvu INTEGER REFERENCES DICHVU(iddichvu)," +
+                "giatien INTEGER," +
+                "ghichu TEXT," +
+                "PRIMARY KEY (idlichdat, iddichvu))";
+        sqLiteDatabase.execSQL(tCTLichDat);
+        //data mau CTLichDat
+        sqLiteDatabase.execSQL("INSERT INTO CTLICHDAT VALUES(1,1,30)," +
+                                                      "(3,1,30)," +
+                                                      "(2,3,120)");
 
 
     }
@@ -43,11 +76,10 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         if(i != i1){
-            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS LOAISACH");
-            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS SACH");
             sqLiteDatabase.execSQL("DROP TABLE IF EXISTS NGUOIDUNG");
-            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS PHIEUMUON");
-            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS CTPM");
+            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS LICHDAT");
+            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS DICHVU");
+            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS CTLICHDAT");
             onCreate(sqLiteDatabase);
         }
     }
