@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="#FFFFFF"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="20dp">
+
+    <LinearLayout
+        android:background="@drawable/custom_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo_item"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"/>
+
+
+        <LinearLayout
+            android:layout_weight="6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+
+
+            <TextView
+                android:id="@+id/txtTenKH"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tên KH: Tấn Tài"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/txtIDLichDat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ID lịch đặt: 0001"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/txtNgay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ngày: 19-11-2023"
+                android:textSize="20sp"/>
+
+
+            <TextView
+                android:id="@+id/txtTenLoai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Giờ: 16g30"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/txtGia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đơn giá: 1000 VND"
+                android:textColor="#FF0000"
+                android:textSize="20sp"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
