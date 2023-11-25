@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DbHelper extends SQLiteOpenHelper {
 
     public DbHelper(Context context){
-        super(context, "4TL", null,8);
+        super(context, "4TL", null,13   );
     }
 
     @Override
@@ -20,20 +20,20 @@ public class DbHelper extends SQLiteOpenHelper {
          */
 
 
-        String tNguoiDunng = "CREATE TABLE NGUOIDUNG(" +
+        String tNguoiDung = "CREATE TABLE NGUOIDUNG(" +
                 "idnguoidung integer primary key autoincrement," +
-                " ten text," +
+                " tennd text," +
                 " diachi text," +
                 " sdt text ," +
-                " email text," +
+                " tendangnhap text," +
                 " matKhau text," +
                 " role integer)";
-        sqLiteDatabase.execSQL(tNguoiDunng);
+        sqLiteDatabase.execSQL(tNguoiDung);
             // data mau nguoi dung
-            sqLiteDatabase.execSQL("INSERT INTO NGUOIDUNG VALUES(1,'Tấn Tài','Q12','0789789789','tai@gmail.com','123',1)," +
-                                                                "(2,'Thế Dinh','Q12','0123123123','vinh@gmail.com','456',1),"+
-                                                                "(3,'Thanh Thiện','Tân Bình','0123123123','thien@gmail.com','789',1),"+
-                                                                "(4,'Chí Hiếu','Gò Vấp','0456456456','hieu@gmail.com','789',1)");
+            sqLiteDatabase.execSQL("INSERT INTO NGUOIDUNG VALUES(1,'Tấn Tài','Q12','0789789789','tantai','123',1)," +
+                                                                "(2,'Thế Dinh','Q12','0123123123','thevinh','456',1),"+
+                                                                "(3,'Thanh Thiện','Tân Bình','0123123123','thanhthien','789',1),"+
+                                                                "(4,'Chí Hiếu','Gò Vấp','0456456456','chihieu','789',2)");
 
 
 
@@ -59,16 +59,17 @@ public class DbHelper extends SQLiteOpenHelper {
                                                         "(2,'Massage mặt + gội đầu',30000),"+
                                                         "(3,'Nhuộm  tóc',120000)");
 
-        String tCTLichDat = "CREATE TABLE CTLICHDAT(idlichdat INTEGER REFERENCES LICHDAT(idlicdat)," +
+        String tCTLichDat = "CREATE TABLE CTLICHDAT(idlichdat INTEGER REFERENCES LICHDAT(idlichdat)," +
                 "iddichvu INTEGER REFERENCES DICHVU(iddichvu)," +
                 "giatien INTEGER," +
                 "ghichu TEXT," +
                 "PRIMARY KEY (idlichdat, iddichvu))";
         sqLiteDatabase.execSQL(tCTLichDat);
         //data mau CTLichDat
-        sqLiteDatabase.execSQL("INSERT INTO CTLICHDAT VALUES(1,1,30)," +
-                                                      "(3,1,30)," +
-                                                      "(2,3,120)");
+        sqLiteDatabase.execSQL("INSERT INTO CTLICHDAT VALUES(1,1,30, 'Ghi chú 1')," +
+                "(3,1,30, 'Ghi chú 2')," +
+                "(2,3,120, 'Ghi chú 3')");
+
 
 
     }

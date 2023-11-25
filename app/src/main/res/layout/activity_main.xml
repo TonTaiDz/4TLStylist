@@ -38,6 +38,7 @@
 
 
         <LinearLayout
+            android:id="@+id/llDonDat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="80dp"
@@ -56,7 +57,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:background="@drawable/custom_edittext"
-                    android:backgroundTint=""
                     >
                     <ImageView
                         android:layout_width="50dp"
@@ -86,6 +86,7 @@
         </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llDatLich"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="80dp"
@@ -133,6 +134,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llTaiKhoan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="80dp"
