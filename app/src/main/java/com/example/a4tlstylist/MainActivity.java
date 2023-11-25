@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity{
     TextView tvDate;
     Button btPickDate;
 
-    @SuppressLint("MissingInflatedId")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +34,6 @@ public class MainActivity extends AppCompatActivity{
         LinearLayout llTaiKhoan = findViewById(R.id.llTaiKhoan);
 
 
-        tvDate = findViewById(R.id.tvDate);
-        btPickDate = findViewById(R.id.btPickDate);
 
 
 
@@ -57,6 +56,19 @@ public class MainActivity extends AppCompatActivity{
                 llTaiKhoan.setVisibility(View.GONE);
                 break;
         }
+
+        llDonDat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,DonDatActivity.class));
+            }
+        });
+        llDatLich.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,DatLichActivity.class));
+            }
+        });
 
     }
 
