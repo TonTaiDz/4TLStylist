@@ -43,12 +43,10 @@ public class MainActivity extends AppCompatActivity{
         int role = sharedPreferences.getInt("role",-1);
         switch (role){
             case 1:// người dùng
-                llDatLich.setVisibility(View.GONE);
-                llTaiKhoan.setVisibility(View.GONE);
+                llDonDat.setVisibility(View.GONE);
                 break;
             case 2:// thợ tóc
-                llDonDat.setVisibility(View.GONE);
-                llTaiKhoan.setVisibility(View.GONE);
+                llDatLich.setVisibility(View.GONE);
                 break;
             default:
                 llDonDat.setVisibility(View.GONE);
@@ -67,6 +65,13 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this,DatLichActivity.class));
+            }
+        });
+
+        llTaiKhoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
 
