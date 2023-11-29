@@ -12,7 +12,8 @@
         android:background="@drawable/custom_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="10dp"
+        >
 
         <ImageView
             android:layout_width="0dp"
@@ -39,25 +40,26 @@
                 android:textSize="20sp"/>
 
             <TextView
+                android:id="@+id/txtIDNguoiDung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ID KH: 001"
+                android:textSize="20sp"/>
+
+            <TextView
                 android:id="@+id/txtIDLichDat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ID lịch đặt: 0001"
-                android:textSize="20sp"/>
-
-            <TextView
-                android:id="@+id/txtNgay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ngày: 19-11-2023"
+                android:text="ID lịch đặt: 001"
                 android:textSize="20sp"/>
 
 
+
             <TextView
-                android:id="@+id/txtTenLoai"
+                android:id="@+id/txtThoiGian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Giờ: 16g30"
+                android:text="Thời Gian: 16g30p 19-02-2024"
                 android:textSize="20sp"/>
 
             <TextView
@@ -68,15 +70,26 @@
                 android:textColor="#FF0000"
                 android:textSize="20sp"/>
 
+            <TextView
+                android:id="@+id/txtTrangThai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Trạng thái: Đang Đặt"
+
+                android:textSize="20sp"/>
+
+            <Button
+                android:id="@+id/btnHuy"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#000000"
+                android:text="Hủy lịch Đặt"/>
+
 
 
         </LinearLayout>
-
-
-
-
-
-
     </LinearLayout>
+
 
 </androidx.cardview.widget.CardView>
