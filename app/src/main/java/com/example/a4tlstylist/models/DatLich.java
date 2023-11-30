@@ -1,23 +1,26 @@
 package com.example.a4tlstylist.models;
 
 public class DatLich {
-    private int idlichdat;
+    private String idlichdat;
     private String thoigian;
     private String trangthai;
     private int idnguoidung;
 
-    public DatLich(int idlichdat, String thoigian, String trangthai, int idnguoidung) {
+    public DatLich(String idlichdat, String thoigian, String trangthai, int idnguoidung) {
         this.idlichdat = idlichdat;
         this.thoigian = thoigian;
         this.trangthai = trangthai;
         this.idnguoidung = idnguoidung;
     }
 
-    public int getIdlichdat() {
+    public DatLich() {
+    }
+
+    public String getIdlichdat() {
         return idlichdat;
     }
 
-    public void setIdlichdat(int idlichdat) {
+    public void setIdlichdat(String idlichdat) {
         this.idlichdat = idlichdat;
     }
 

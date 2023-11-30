@@ -40,19 +40,19 @@ public class RegisterActivity extends AppCompatActivity {
                 if(!pass.equals(repass)){
                     Toast.makeText(RegisterActivity.this, "Mật khẩu không trùng nhau", Toast.LENGTH_SHORT).show();
                 }else {
-                    String user = edtUsername.getText().toString();
-                    String name = edtName.getText().toString();
-                    String phone = edtSDT.getText().toString();
-                    String addredss = edtAddress.getText().toString();
-
-                    NguoiDung nguoiDung = new NguoiDung(name, phone, addredss, user, pass);
-                    boolean check = nguoiDungDAO.dangKiTaiKhoan(nguoiDung);
-                    if(check){
-                        Toast.makeText(RegisterActivity.this, "Đăng kí thành công", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }else {
-                        Toast.makeText(RegisterActivity.this, "Đăng kí thất bại", Toast.LENGTH_SHORT).show();
-                    }
+//                    String user = edtUsername.getText().toString();
+//                    String name = edtName.getText().toString();
+//                    String phone = edtSDT.getText().toString();
+//                    String addredss = edtAddress.getText().toString();
+//
+//                    NguoiDung nguoiDung = new NguoiDung(name, phone, addredss, user, pass);
+//                    boolean check = nguoiDungDAO.dangKiTaiKhoan(nguoiDung);
+//                    if(check){
+//                        Toast.makeText(RegisterActivity.this, "Đăng kí thành công", Toast.LENGTH_SHORT).show();
+//                        finish();
+//                    }else {
+//                        Toast.makeText(RegisterActivity.this, "Đăng kí thất bại", Toast.LENGTH_SHORT).show();
+//                    }
                 }
             }
         });

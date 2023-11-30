@@ -1,59 +1,75 @@
 package com.example.a4tlstylist.models;
 
 public class NguoiDung {
-    private int tennd;
-    private String sdt;
-    private String diachi;
-    private String tendangnhap;
-    private String matKhau;
-    private int role;
 
-    public NguoiDung(int tennd, String sdt, String diachi, String tendangnhap, String matKhau, int role) {
-        this.tennd = tennd;
-        this.sdt = sdt;
-        this.diachi = diachi;
-        this.tendangnhap = tendangnhap;
+
+    private int IdNgayDung ;
+   private String TenKH ;
+   private String DiaChi;
+   private String Sdt;
+   private String tenDangNhap;
+   private String matKhau ;
+   private int role ;
+    public NguoiDung(int idNgayDung, String tenKH, String diaChi, String sdt, String tenDangNhap, String matKhau, int role) {
+        IdNgayDung = idNgayDung;
+        TenKH = tenKH;
+        DiaChi = diaChi;
+        Sdt = sdt;
+        this.tenDangNhap = tenDangNhap;
+        this.matKhau = matKhau;
+        this.role = role;
+    }
+    public NguoiDung( String tenKH, String diaChi, String sdt, String tenDangNhap, String matKhau, int role) {
+
+        TenKH = tenKH;
+        DiaChi = diaChi;
+        Sdt = sdt;
+        this.tenDangNhap = tenDangNhap;
         this.matKhau = matKhau;
         this.role = role;
     }
 
-    public NguoiDung(String sdt, String diachi, String tendangnhap, String matKhau, String pass) {
-        this.sdt = sdt;
-        this.diachi = diachi;
-        this.tendangnhap = tendangnhap;
-        this.matKhau = matKhau;
+    public NguoiDung() {
     }
 
-    public int getTennd() {
-        return tennd;
+    public int getIdNgayDung() {
+        return IdNgayDung;
     }
 
-    public void setTennd(int tennd) {
-        this.tennd = tennd;
+    public void setIdNgayDung(int idNgayDung) {
+        IdNgayDung = idNgayDung;
+    }
+
+    public String getTenKH() {
+        return TenKH;
+    }
+
+    public void setTenKH(String tenKH) {
+        TenKH = tenKH;
+    }
+
+    public String getDiaChi() {
+        return DiaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        DiaChi = diaChi;
     }
 
     public String getSdt() {
-        return sdt;
+        return Sdt;
     }
 
     public void setSdt(String sdt) {
-        this.sdt = sdt;
+        Sdt = sdt;
     }
 
-    public String getDiachi() {
-        return diachi;
+    public String getTenDangNhap() {
+        return tenDangNhap;
     }
 
-    public void setDiachi(String diachi) {
-        this.diachi = diachi;
-    }
-
-    public String getTendangnhap() {
-        return tendangnhap;
-    }
-
-    public void setTendangnhap(String tendangnhap) {
-        this.tendangnhap = tendangnhap;
+    public void setTenDangNhap(String tenDangNhap) {
+        this.tenDangNhap = tenDangNhap;
     }
 
     public String getMatKhau() {
