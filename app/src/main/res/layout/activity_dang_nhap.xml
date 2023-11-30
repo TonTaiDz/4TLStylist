@@ -84,11 +84,21 @@
                 android:padding="8dp"
                 android:textColor="@color/black" />
 
+            <TextView
+                android:id="@+id/btnForgotPass"
+                android:layout_width="match_parent"
+                android:gravity="end"
+                android:layout_height="wrap_content"
+                android:text="@string/forgot_pass"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp" />
+
+
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="#000000"
                 android:text="Login"
                 android:textSize="18sp"
@@ -110,7 +120,6 @@
         android:orientation="horizontal">
 
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/don_t_have_an_account"

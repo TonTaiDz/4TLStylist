@@ -109,7 +109,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ic_edit_calendar"
+                    android:src="@drawable/baseline_bar_chart_24"
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
@@ -126,7 +126,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="5dp"
-            android:text="Đặt lịch"
+            android:text="Thống kê"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="30sp"
