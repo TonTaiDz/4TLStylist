@@ -13,6 +13,30 @@
         android:theme="@style/Theme._4TLStylist"
         tools:targetApi="31">
         <activity
+            android:name=".ThongTinTaiKhoanShop"
+            android:exported="false" />
+        <activity
+            android:name=".ThongKeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ThongTinTaiKhoanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LichDatCuaBanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".lichDatCuaKhachActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NhapMatKhauAcitivity"
+            android:exported="false" />
+        <activity
+            android:name=".XacNhanMaOTPActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuenMatKhauActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainTho"
             android:exported="false" />
         <activity
