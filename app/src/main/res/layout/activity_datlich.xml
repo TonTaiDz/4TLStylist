@@ -34,23 +34,37 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/custom_edittext2"
             android:drawablePadding="8dp"
-            android:hint="Nhập tên"
+            android:hint="Nhập số điện thoại"
+            android:paddingStart="15dp"
             android:padding="8dp"
             android:textColor="@color/black" />
 
         <EditText
-            android:id="@+id/edtNgayGio"
+            android:id="@+id/edtNgay"
             android:layout_marginHorizontal="20dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/custom_edittext2"
             android:drawablePadding="8dp"
-            android:hint="Ngày / giờ"
+            android:paddingStart="15dp"
+            android:hint="Ngày"
             android:padding="8dp"
             android:textColor="@color/black" />
 
 
+        <EditText
+            android:id="@+id/edtGio"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_edittext2"
+            android:drawablePadding="8dp"
+            android:paddingStart="15dp"
+            android:hint="Giờ"
+            android:padding="8dp"
+            android:textColor="@color/black" />
 
 
         <LinearLayout

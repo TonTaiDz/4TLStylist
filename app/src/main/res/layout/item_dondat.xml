@@ -75,19 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Trạng thái: Đang Đặt"
-
                 android:textSize="20sp"/>
-
-            <Button
-                android:id="@+id/btnHuy"
-                android:layout_margin="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:backgroundTint="#000000"
-                android:text="Hủy lịch Đặt"/>
-
-
-
         </LinearLayout>
     </LinearLayout>
 
