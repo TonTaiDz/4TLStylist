@@ -21,19 +21,12 @@ public class DonDatActivity extends AppCompatActivity {
 
         rcvDonDat = findViewById(R.id.rcvDonDat);
         datLichDAO = new DatLichDAO(this);
-        loadData();
 
 
 
     }
 
-    private void loadData() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rcvDonDat.setLayoutManager(linearLayoutManager);
 
-        DatLichAdapter adapter = new DatLichAdapter(this, datLichDAO.getdsDatLich());
-        rcvDonDat.setAdapter(adapter);
-    }
 
 
 }
