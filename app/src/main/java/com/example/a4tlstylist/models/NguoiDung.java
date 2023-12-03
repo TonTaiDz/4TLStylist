@@ -1,8 +1,6 @@
 package com.example.a4tlstylist.models;
 
 public class NguoiDung {
-
-
     private int IdNgayDung ;
    private String TenKH ;
    private String DiaChi;
@@ -11,19 +9,18 @@ public class NguoiDung {
    private String matKhau ;
    private int role ;
     public NguoiDung(int idNgayDung, String tenKH, String diaChi, String sdt, String tenDangNhap, String matKhau, int role) {
-        IdNgayDung = idNgayDung;
-        TenKH = tenKH;
-        DiaChi = diaChi;
-        Sdt = sdt;
+        this.IdNgayDung = idNgayDung;
+        this.TenKH = tenKH;
+        this.DiaChi = diaChi;
+        this.Sdt = sdt;
         this.tenDangNhap = tenDangNhap;
         this.matKhau = matKhau;
         this.role = role;
     }
     public NguoiDung( String tenKH, String diaChi, String sdt, String tenDangNhap, String matKhau, int role) {
-
-        TenKH = tenKH;
-        DiaChi = diaChi;
-        Sdt = sdt;
+        this.TenKH = tenKH;
+        this.DiaChi = diaChi;
+        this.Sdt = sdt;
         this.tenDangNhap = tenDangNhap;
         this.matKhau = matKhau;
         this.role = role;
@@ -37,7 +34,7 @@ public class NguoiDung {
     }
 
     public void setIdNgayDung(int idNgayDung) {
-        IdNgayDung = idNgayDung;
+        this.IdNgayDung = idNgayDung;
     }
 
     public String getTenKH() {
@@ -45,7 +42,7 @@ public class NguoiDung {
     }
 
     public void setTenKH(String tenKH) {
-        TenKH = tenKH;
+        this.TenKH = tenKH;
     }
 
     public String getDiaChi() {
@@ -53,7 +50,7 @@ public class NguoiDung {
     }
 
     public void setDiaChi(String diaChi) {
-        DiaChi = diaChi;
+        this.DiaChi = diaChi;
     }
 
     public String getSdt() {
@@ -61,7 +58,7 @@ public class NguoiDung {
     }
 
     public void setSdt(String sdt) {
-        Sdt = sdt;
+        this.Sdt = sdt;
     }
 
     public String getTenDangNhap() {

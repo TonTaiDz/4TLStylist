@@ -24,24 +24,17 @@ public class LichDatCTDao {
         if(cursor.getCount()>0){
             cursor.moveToFirst();
             do {
-                list.add(new LichDatCT(cursor.getInt(0),cursor.getInt(1),cursor.getInt(2),cursor.getInt(3)));
+                list.add(new LichDatCT(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3)));
             }while (cursor.moveToNext());
         }
         return list;
     }
     public long insert(LichDatCT lichDatCT ){
         ContentValues contentValues = new ContentValues();
-        contentValues.put("idlichdat", lichDatCT.getIdLichDat() );
+        contentValues.put("idlichdat", lichDatCT.getIdlichdat());
         contentValues.put("iddichvu",lichDatCT.getIdDichVu());
         contentValues.put("giatien", lichDatCT.getGiaTien());
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-
         return sqLiteDatabase.insert("LICHDATCT" , null , contentValues);
     }
-
-    //SELECT NGUOIDUNG.tenkh, LICHDAT.idlichdat, LICHDAT.thoigian, DICHVU.tendichvu, LICHDATCT.giatien
-    //               FROM LICHDATCT
-    //               JOIN LICHDAT ON LICHDATCT.idlichdat = LICHDAT.idlichdat
-    //               JOIN DICHVU ON LICHDATCT.iddichvu = DICHVU.iddichvu
-    //               JOIN NGUOIDUNG ON LICHDAT.idnguoidung = NGUOIDUNG.idnguoidung
 }

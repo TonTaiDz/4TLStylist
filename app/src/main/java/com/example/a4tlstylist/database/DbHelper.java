@@ -22,18 +22,20 @@ public class DbHelper extends SQLiteOpenHelper {
                 " matKhau text," +
                 " role integer)";
         sqLiteDatabase.execSQL(tNguoiDung);
-        sqLiteDatabase.execSQL("INSERT INTO NGUOIDUNG VALUES(1,'Tấn Tài','Q12','0789789789','tantai','123',1)," +
+        sqLiteDatabase.execSQL("INSERT INTO NGUOIDUNG VALUES" +
+                "(1,'Tấn Tài','Q12','0789789789','tantai','123',1)," +
                 "(2,'Thế Dinh','Q12','0123123123','thevinh','456',1),"+
                 "(3,'Thanh Thiện','Tân Bình','0123123123','thanhthien','789',1),"+
                 "(4,'Chí Hiếu','Gò Vấp','0456456456','chihieu','789',2)");
         String tLichDat = "CREATE TABLE LICHDAT(idlichdat text primary key ," +
                 "thoigian text," +
+                "ngay text,"+
                 "trangthai text," +
                 "idnguoidung integer references NGUOIDUNG(idnguoidung))";
         sqLiteDatabase.execSQL(tLichDat);
-        sqLiteDatabase.execSQL("INSERT INTO LICHDAT VALUES(1,'12h30p','Đã xong',1)," +
-                "(2,'12h50p','Chưa Nhận',2),"+
-                "(3,'1h30p','Chưa Nhận',3)");
+        sqLiteDatabase.execSQL("INSERT INTO LICHDAT VALUES(1,'12h30p','1/12/2023','Đã xong',1)," +
+                "(2,'12h50p','1/12/2023','Chưa Nhận',2),"+
+                "(3,'1h30p','1/12/2023','Chưa Nhận',3)");
 
 
         String tDichVu = "CREATE TABLE DICHVU( iddichvu INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -45,20 +47,12 @@ public class DbHelper extends SQLiteOpenHelper {
                 "(3,'Nhuộm  tóc',120000)");
 
 
-
-
-
-
-
         String LichDatCT = "create table LICHDATCT(idlichchitiet integer primary key AUTOINCREMENT," +
                 "idlichdat integer references LICHDAT(idlichdat) ," +
                 " iddichvu integer references DICHVU( iddichvu)," +
                 "giatien integer)";
         sqLiteDatabase.execSQL(LichDatCT);
-        sqLiteDatabase.execSQL("INSERT INTO LICHDATCT VALUES (1,2,3,20000),(2,2,2,20000) ");
-
-
-
+        sqLiteDatabase.execSQL("INSERT INTO LICHDATCT VALUES (1,2,3,20000),(2,2,2,20000)");
 
     }
 
@@ -69,7 +63,6 @@ public class DbHelper extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL("DROP TABLE IF EXISTS LICHDAT");
             sqLiteDatabase.execSQL("DROP TABLE IF EXISTS DICHVU");
             sqLiteDatabase.execSQL("DROP TABLE IF EXISTS LICHDATCT;");
-
             onCreate(sqLiteDatabase);
         }
     }

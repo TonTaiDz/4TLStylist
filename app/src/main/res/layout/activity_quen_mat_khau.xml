@@ -30,17 +30,20 @@
 
     </LinearLayout>
 
+
     <EditText
         android:id="@+id/edt_soDienThoai"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/custom_edittext2"
         android:hint="Số điện thoại"
+        android:maxLines="1"
+        android:maxLength="11"
+        android:inputType="number"
         android:padding="10dp"
-        android:layout_marginHorizontal="20dp"
         android:textColor="@color/black" />
-
 
     <Button
         android:id="@+id/btn_getOTP"

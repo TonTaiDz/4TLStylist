@@ -3,17 +3,27 @@ package com.example.a4tlstylist.models;
 public class DatLich {
     private String idlichdat;
     private String thoigian;
+    private String ngay;
     private String trangthai;
     private int idnguoidung;
 
-    public DatLich(String idlichdat, String thoigian, String trangthai, int idnguoidung) {
+    public DatLich(String idlichdat, String thoigian, String ngay, String trangthai, int idnguoidung) {
         this.idlichdat = idlichdat;
         this.thoigian = thoigian;
+        this.ngay = ngay;
         this.trangthai = trangthai;
         this.idnguoidung = idnguoidung;
     }
 
     public DatLich() {
+    }
+
+    public String getNgay() {
+        return ngay;
+    }
+
+    public void setNgay(String ngay) {
+        this.ngay = ngay;
     }
 
     public String getIdlichdat() {

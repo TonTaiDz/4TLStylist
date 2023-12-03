@@ -34,7 +34,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/custom_edittext2"
             android:drawablePadding="8dp"
-            android:hint="Nhập số điện thoại"
+            android:hint="Họ và tên"
             android:paddingStart="15dp"
             android:padding="8dp"
             android:textColor="@color/black" />
@@ -82,6 +82,7 @@
                 android:textSize="20sp"/>
 
             <CheckBox
+                android:id="@+id/cattoc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="cắt tóc 30k"
@@ -89,6 +90,7 @@
                 />
 
             <CheckBox
+                android:id="@+id/nhuom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="nhuộm tóc 120k"
@@ -96,6 +98,7 @@
                 />
 
             <CheckBox
+                android:id="@+id/massage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="massage mặt  + gội đầu 30k "

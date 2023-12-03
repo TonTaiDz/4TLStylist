@@ -14,66 +14,63 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.a4tlstylist.R;
+import com.example.a4tlstylist.dao.DatLichDAO;
+import com.example.a4tlstylist.databinding.ItemDondatBinding;
 import com.example.a4tlstylist.models.DatLich;
+import com.example.a4tlstylist.models.HoaDonCT;
 
 import java.util.ArrayList;
 
 public class DatLichAdapter extends RecyclerView.Adapter<DatLichAdapter.ViewHolder>{
 
-    private Context context;
-    private ArrayList<DatLich> list;
+    private ArrayList<HoaDonCT> listData;
+    private Click click;
 
-    public DatLichAdapter(Context context, ArrayList<DatLich> list) {
-        this.context = context;
-        this.list = list;
+    public DatLichAdapter(ArrayList<HoaDonCT> listData, Click click) {
+        this.listData = listData;
+        this.click = click;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View view = inflater.inflate(R.layout.item_dondat,parent,false);
-
-        return new ViewHolder(view);
+        ItemDondatBinding binding = ItemDondatBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new ViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtIDNguoiDung.setText(String.valueOf(list.get(position).getIdnguoidung()));
-//        holder.txtTenKH.setText(list.get(position).());
-        holder.txtIDLichDat.setText(list.get(position).getIdlichdat());
-        holder.txtThoiGian.setText(list.get(position).getThoigian());
-//        holder.txtGia.setText(String.valueOf(list.get(position).()+ " VND"));
-
-
-        holder.btnHuy.setOnClickListener(new View.OnClickListener() {
+        HoaDonCT hoaDonCT = listData.get(position);
+        holder.binding.txtTenKH.setText("Tên KH: " + hoaDonCT.getTenKH());
+        holder.binding.txtIDLichDat.setText("Id lịch: "+ hoaDonCT.getIdlichdat());
+        holder.binding.txtThoiGian.setText("Thời gian: "+ hoaDonCT.getThoigian()+"\n"+hoaDonCT.getNgay());
+        holder.binding.txtTrangThai.setText("Trạng thái: " + hoaDonCT.getTrangthai());
+        holder.binding.txtGia.setText("Đơn giá: " + hoaDonCT.getGiaTien()+"VND");
+        holder.binding.item.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                click.click(hoaDonCT);
             }
         });
-
-
     }
+
+    public interface Click {
+        void click(HoaDonCT hoaDonCT);
+    }
+
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return listData.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView txtIDNguoiDung,txtTenKH,txtIDLichDat,txtThoiGian,txtGia,txtTrangThai;
-        Button btnHuy;
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            txtIDNguoiDung = itemView.findViewById(R.id.txtIDNguoiDung);
-            txtTenKH = itemView.findViewById(R.id.txtTenKH);
-            txtIDLichDat = itemView.findViewById(R.id.txtIDLichDat);
-            txtThoiGian = itemView.findViewById(R.id.txtThoiGian);
-            txtTrangThai = itemView.findViewById(R.id.txtTrangThai);
-            txtGia = itemView.findViewById(R.id.txtGia);
-            btnHuy = itemView.findViewById(R.id.btnHuy);
+        ItemDondatBinding binding;
+
+        public ViewHolder(@NonNull ItemDondatBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
     }
 }
