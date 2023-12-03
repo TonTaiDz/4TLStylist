@@ -94,23 +94,34 @@ public class DatLichActivity extends AppCompatActivity {
 
                 DatLich datLich = new DatLich(id,gio,ngay,"Chưa Nhận",idNd);
                 datLichDAO.insert(datLich);
+                LichDatCT lichDatCT = null;
+                LichDatCT lichDatCT1 = null;
+                LichDatCT lichDatCT2 = null;
                 if (datlichBinding.cattoc.isChecked()){
-                    LichDatCT lichDatCT = new LichDatCT(id,1,30000);
-                    lichDatCTDao.insert(lichDatCT);
+                    lichDatCT = new LichDatCT(id,1,30000);
                 }
 
                 if (datlichBinding.nhuom.isChecked()){
-                    LichDatCT lichDatCT = new LichDatCT(id,2,30000);
-                    lichDatCTDao.insert(lichDatCT);
+                    lichDatCT1 = new LichDatCT(id,2,30000);
                 }
 
                 if (datlichBinding.massage.isChecked()){
-                    LichDatCT lichDatCT = new LichDatCT(id,3,120000);
-                    lichDatCTDao.insert(lichDatCT);
-                    clearData();
-                    Toast.makeText(DatLichActivity.this,"Tạo thành công",Toast.LENGTH_SHORT).show();
-
+                    lichDatCT2 = new LichDatCT(id,3,120000);
                 }
+
+                if (lichDatCT != null){
+                    lichDatCTDao.insert(lichDatCT);
+                }
+
+                if (lichDatCT1 != null){
+                    lichDatCTDao.insert(lichDatCT1);
+                }
+
+                if (lichDatCT2 != null){
+                    lichDatCTDao.insert(lichDatCT2);
+                }
+                clearData();
+                Toast.makeText(DatLichActivity.this,"Tạo thành công",Toast.LENGTH_SHORT).show();
             }
         });
 
