@@ -20,7 +20,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/custom_edittext2"
         android:drawablePadding="8dp"
-        android:text="Đơn đặt của Khách hàng"
+        android:text="Đơn đặt của Khách"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textAlignment="center"

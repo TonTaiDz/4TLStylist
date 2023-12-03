@@ -39,20 +39,20 @@
 
 
     <TextView
-        android:id="@+id/txt_lichDatHang"
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="30dp"
         android:padding="10dp"
-        android:text="id lịch của bạn"
+        android:text="Tên: "
         android:textSize="20dp" />
 
 
     <TextView
         android:id="@+id/txt_dichVu"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:padding="10dp"
         android:text="Dịch vụ: cắt tóc"

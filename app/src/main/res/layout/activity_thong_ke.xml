@@ -66,6 +66,7 @@
             />
 
         <TextView
+            android:id="@+id/tienngay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="120.000D"
@@ -95,6 +96,7 @@
             />
 
         <TextView
+            android:id="@+id/tienThang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="120.000D"
@@ -126,6 +128,7 @@
             />
 
         <TextView
+            android:id="@+id/luotkhach"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="120"

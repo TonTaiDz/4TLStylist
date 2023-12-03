@@ -2,26 +2,42 @@ package com.example.a4tlstylist.models;
 
 public class LichDatCT {
     private int idLichDatChiTiet;
-    private int idLichDat ;
+    private String idlichdat;
     private int idDichVu;
     private int giaTien;
 
-    public LichDatCT(int idLichDatChiTiet , int idLichDat, int idDichVu, int giaTien) {
-        this.idLichDat = idLichDat;
-        this.idDichVu = idDichVu;
-        this.giaTien = giaTien;
 
-    }
 
     public LichDatCT() {
     }
 
-    public int getIdLichDat() {
-        return idLichDat;
+    public LichDatCT(int idLichDatChiTiet, String idlichdat, int idDichVu, int giaTien) {
+        this.idLichDatChiTiet = idLichDatChiTiet;
+        this.idlichdat = idlichdat;
+        this.idDichVu = idDichVu;
+        this.giaTien = giaTien;
     }
 
-    public void setIdLichDat(int idLichDat) {
-        this.idLichDat = idLichDat;
+    public LichDatCT(String idlichdat, int idDichVu, int giaTien) {
+        this.idlichdat = idlichdat;
+        this.idDichVu = idDichVu;
+        this.giaTien = giaTien;
+    }
+
+    public int getIdLichDatChiTiet() {
+        return idLichDatChiTiet;
+    }
+
+    public void setIdLichDatChiTiet(int idLichDatChiTiet) {
+        this.idLichDatChiTiet = idLichDatChiTiet;
+    }
+
+    public String getIdlichdat() {
+        return idlichdat;
+    }
+
+    public void setIdlichdat(String idlichdat) {
+        this.idlichdat = idlichdat;
     }
 
     public int getIdDichVu() {
@@ -39,7 +55,4 @@ public class LichDatCT {
     public void setGiaTien(int giaTien) {
         this.giaTien = giaTien;
     }
-
-
-
 }

@@ -9,6 +9,7 @@
     app:cardElevation="20dp">
 
     <LinearLayout
+        android:id="@+id/item"
         android:background="@drawable/custom_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,13 +38,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tên KH: Tấn Tài"
-                android:textSize="20sp"/>
-
-            <TextView
-                android:id="@+id/txtIDNguoiDung"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ID KH: 001"
                 android:textSize="20sp"/>
 
             <TextView

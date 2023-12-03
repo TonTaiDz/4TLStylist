@@ -34,7 +34,7 @@
         android:id="@+id/edt_maKhauMoi"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/custom_edittext2"
         android:hint="Mật khẩu mới"
         android:padding="10dp"

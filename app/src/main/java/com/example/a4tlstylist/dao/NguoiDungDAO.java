@@ -33,23 +33,7 @@ public class NguoiDungDAO {
         return list;
     }
 
-    public int login(String tendangnhap, String matKhau, int role) {
-        int result = 0;
-        String str[] = new String[3];
-        str[0] = tendangnhap;
-        str[1] = matKhau;
-        str[2] = String.valueOf(role);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor c = db.rawQuery("select * from NGUOIDUNG where tendangnhap=? and matKhau=? and role=?", str);
-        if (c.moveToNext()) {
-            result = 1;
-        }
-        return result;
-    }
-
-
     public long insert(NguoiDung nguoiDung ){
-
         ContentValues contentValues = new ContentValues();
         contentValues.put("tenkh", nguoiDung.getTenKH() );
         contentValues.put("sdt",nguoiDung.getSdt());
@@ -58,8 +42,14 @@ public class NguoiDungDAO {
         contentValues.put("matKhau", nguoiDung.getMatKhau() );
         contentValues.put("role", nguoiDung.getRole() );
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-        sqLiteDatabase.insert("NGUOIDUNG", null,contentValues);
         return sqLiteDatabase.insert("NGUOIDUNG" , null , contentValues);
+    }
+
+    public void upDatePass(NguoiDung nguoiDung){
+        ContentValues values = new ContentValues();
+        values.put("matKhau", nguoiDung.getMatKhau());
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        sqLiteDatabase.update("NGUOIDUNG", values, "idnguoidung=?", new String[]{String.valueOf(nguoiDung.getIdNgayDung())});
     }
 
 }

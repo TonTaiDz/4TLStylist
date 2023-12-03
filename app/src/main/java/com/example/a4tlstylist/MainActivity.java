@@ -17,64 +17,66 @@ import java.text.DateFormat;
 import java.util.Calendar;
 
 import android.os.Bundle;
+import android.widget.Toast;
+
+import com.example.a4tlstylist.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity{
 
-    TextView tvDate;
-    Button btPickDate;
-
-
+    private ActivityMainBinding mainBinding;
+    private boolean doubleBackToExitPressedOnce = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(mainBinding.getRoot());
 
-        LinearLayout llDonDat = findViewById(R.id.llDonDat);
-        LinearLayout llDatLich = findViewById(R.id.llDatLich);
-        LinearLayout llTaiKhoan = findViewById(R.id.llTaiKhoan);
+        initView();
+    }
 
+    private void initView() {
+        mainBinding.llTaiKhoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ThongTinTaiKhoanActivity.class));
+            }
+        });
 
+        mainBinding.llDatLich.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, DatLichActivity.class));
+            }
+        });
 
+        mainBinding.llDonDat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, DonDatActivity.class));
+            }
+        });
+    }
 
-
-        //lấy role đã lưu trong SharedPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences("dataUser",MODE_PRIVATE);
-
-        int role = sharedPreferences.getInt("role",-1);
-        switch (role){
-            case 1:// người dùng
-                llDonDat.setVisibility(View.GONE);
-                break;
-            case 2:// thợ tóc
-                llDatLich.setVisibility(View.GONE);
-                break;
-            default:
-                llDonDat.setVisibility(View.GONE);
-                llDatLich.setVisibility(View.GONE);
-                llTaiKhoan.setVisibility(View.GONE);
-                break;
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
         }
 
-        llDonDat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,DonDatActivity.class));
-            }
-        });
-        llDatLich.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,DatLichActivity.class));
-            }
-        });
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Nhấn lần nữa để thoát", Toast.LENGTH_SHORT).show();
 
-        llTaiKhoan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
+        // Đặt thời gian chờ để reset trạng thái doubleBackToExitPressedOnce
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        doubleBackToExitPressedOnce = false;
+                    }
+                },
+                2000 // 2 giây
+        );
     }
 
 }
