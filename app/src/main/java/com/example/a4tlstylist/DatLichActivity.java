@@ -99,14 +99,20 @@ public class DatLichActivity extends AppCompatActivity {
                 LichDatCT lichDatCT2 = null;
                 if (datlichBinding.cattoc.isChecked()){
                     lichDatCT = new LichDatCT(id,1,30000);
+                } else {
+                    lichDatCT = null;
                 }
 
                 if (datlichBinding.nhuom.isChecked()){
                     lichDatCT1 = new LichDatCT(id,2,30000);
+                } else {
+                    lichDatCT1 = null;
                 }
 
                 if (datlichBinding.massage.isChecked()){
                     lichDatCT2 = new LichDatCT(id,3,120000);
+                } else {
+                    lichDatCT2 = null;
                 }
 
                 if (lichDatCT != null){
