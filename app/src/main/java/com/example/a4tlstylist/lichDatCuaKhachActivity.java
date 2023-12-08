@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.a4tlstylist.Funtions.MoneyFormat;
 import com.example.a4tlstylist.dao.DatLichDAO;
 import com.example.a4tlstylist.databinding.ActivityLichDatCuaKhachBinding;
 import com.example.a4tlstylist.models.HoaDonCT;
@@ -49,7 +50,7 @@ public class lichDatCuaKhachActivity extends AppCompatActivity {
 
         binding.txtThoiGian.setText("Thời gian: " + hoaDonCT.getThoigian());
         binding.txtNgay.setText("Ngày: " + hoaDonCT.getNgay());
-        binding.txtTongTien.setText(hoaDonCT.getGiaTien() + "VND");
+        binding.txtTongTien.setText(MoneyFormat.moneyFormat(hoaDonCT.getGiaTien()) + "VND");
         binding.txtTrangThai.setText("Trạng thái: " + hoaDonCT.getTrangthai());
 
 
@@ -73,6 +74,7 @@ public class lichDatCuaKhachActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         datLichDAO.upDateStatus(hoaDonCT.getIdlichdat(),"Hủy");
                         Toast.makeText(lichDatCuaKhachActivity.this, "Hủy thành công",Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 });
                 builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {

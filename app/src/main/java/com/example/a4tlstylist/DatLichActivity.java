@@ -128,6 +128,7 @@ public class DatLichActivity extends AppCompatActivity {
                 }
                 clearData();
                 Toast.makeText(DatLichActivity.this,"Tạo thành công",Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 
