@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.a4tlstylist.Funtions.MoneyFormat;
 import com.example.a4tlstylist.dao.DatLichDAO;
 import com.example.a4tlstylist.databinding.ActivityLichDatCuaBanBinding;
 import com.example.a4tlstylist.models.HoaDonCT;
@@ -50,7 +51,7 @@ public class LichDatCuaBanActivity extends AppCompatActivity {
         binding.txtDichVu.setText(dichvu);
         binding.txtThoiGian.setText("Thời gian: " + hoaDonCT.getThoigian());
         binding.txtNgay.setText("Ngày: " + hoaDonCT.getNgay());
-        binding.txtTongTien.setText(hoaDonCT.getGiaTien() + "VND");
+        binding.txtTongTien.setText(MoneyFormat.moneyFormat(hoaDonCT.getGiaTien()));
         binding.txtTrangThai.setText("Trạng thái: " + hoaDonCT.getTrangthai());
         if (hoaDonCT.getTrangthai().equals("Đã xong") || hoaDonCT.getTrangthai().equals("Hủy")){
             binding.btnHuy.setVisibility(View.GONE);

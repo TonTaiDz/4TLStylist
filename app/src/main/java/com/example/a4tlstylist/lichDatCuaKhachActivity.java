@@ -50,7 +50,7 @@ public class lichDatCuaKhachActivity extends AppCompatActivity {
 
         binding.txtThoiGian.setText("Thời gian: " + hoaDonCT.getThoigian());
         binding.txtNgay.setText("Ngày: " + hoaDonCT.getNgay());
-        binding.txtTongTien.setText(MoneyFormat.moneyFormat(hoaDonCT.getGiaTien()) + "VND");
+        binding.txtTongTien.setText(MoneyFormat.moneyFormat(hoaDonCT.getGiaTien()));
         binding.txtTrangThai.setText("Trạng thái: " + hoaDonCT.getTrangthai());
 
 

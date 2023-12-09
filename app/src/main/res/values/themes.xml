@@ -5,5 +5,8 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme._4TLStylist" parent="Base.Theme._4TLStylist" />
+    <style name="Theme._4TLStylist" parent="Base.Theme._4TLStylist">
+        <item name="android:statusBarColor">@color/white</item>
+    </style>
+
 </resources>

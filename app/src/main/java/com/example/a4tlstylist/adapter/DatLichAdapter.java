@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.a4tlstylist.Funtions.MoneyFormat;
 import com.example.a4tlstylist.R;
 import com.example.a4tlstylist.dao.DatLichDAO;
 import com.example.a4tlstylist.databinding.ItemDondatBinding;
@@ -45,7 +46,7 @@ public class DatLichAdapter extends RecyclerView.Adapter<DatLichAdapter.ViewHold
         holder.binding.txtIDLichDat.setText("Id lịch: "+ hoaDonCT.getIdlichdat());
         holder.binding.txtThoiGian.setText("Thời gian: "+ hoaDonCT.getThoigian()+"\n"+hoaDonCT.getNgay());
         holder.binding.txtTrangThai.setText("Trạng thái: " + hoaDonCT.getTrangthai());
-        holder.binding.txtGia.setText("Đơn giá: " + hoaDonCT.getGiaTien()+"VND");
+        holder.binding.txtGia.setText("Đơn giá: " + MoneyFormat.moneyFormat(hoaDonCT.getGiaTien()));
         holder.binding.item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
