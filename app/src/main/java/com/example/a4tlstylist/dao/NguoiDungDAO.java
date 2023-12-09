@@ -52,4 +52,15 @@ public class NguoiDungDAO {
         sqLiteDatabase.update("NGUOIDUNG", values, "idnguoidung=?", new String[]{String.valueOf(nguoiDung.getIdNgayDung())});
     }
 
+    public void updateInfo(NguoiDung nguoiDung) {
+        ContentValues values = new ContentValues();
+        values.put("tenkh", nguoiDung.getTenKH());
+        values.put("sdt", nguoiDung.getSdt());
+        values.put("diachi", nguoiDung.getDiaChi());
+
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        sqLiteDatabase.update("NGUOIDUNG", values, "idnguoidung=?", new String[]{String.valueOf(nguoiDung.getIdNgayDung())});
+    }
+
+
 }

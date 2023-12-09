@@ -19,6 +19,7 @@ import com.example.a4tlstylist.adapter.AccountSingle;
 import com.example.a4tlstylist.dao.NguoiDungDAO;
 import com.example.a4tlstylist.databinding.ActivityThongTinTaiKhoanBinding;
 import com.example.a4tlstylist.databinding.DialogUpdatePasswordBinding;
+import com.example.a4tlstylist.databinding.DialogUpdateTaiKhoanBinding;
 import com.example.a4tlstylist.models.NguoiDung;
 
 public class ThongTinTaiKhoanShop extends AppCompatActivity {
@@ -42,6 +43,13 @@ public class ThongTinTaiKhoanShop extends AppCompatActivity {
         taiKhoanBinding.name.setText(nguoiDung.getTenKH());
         taiKhoanBinding.numberPhone.setText(nguoiDung.getSdt());
         taiKhoanBinding.adress.setText(nguoiDung.getDiaChi());
+
+        taiKhoanBinding.btnThoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         taiKhoanBinding.btnDangXuat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,6 +132,98 @@ public class ThongTinTaiKhoanShop extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
+                dialog.show();
+            }
+        });
+
+        taiKhoanBinding.capNhatThongTin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogUpdateTaiKhoanBinding updateAccountBinding = DialogUpdateTaiKhoanBinding.inflate(getLayoutInflater());
+                Dialog dialog = new Dialog(ThongTinTaiKhoanShop.this);
+                dialog.setContentView(updateAccountBinding.getRoot());
+                dialog.getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                updateAccountBinding.fullName.setText(nguoiDung.getTenKH());
+                updateAccountBinding.numberPhone.setText(nguoiDung.getSdt());
+                updateAccountBinding.adress.setText(nguoiDung.getDiaChi());
+
+                updateAccountBinding.fullName.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        if (updateAccountBinding.fullName.getText().toString().trim().length() < 5) {
+                            updateAccountBinding.fullName.setError("Tên người dùng không được nhỏ hơn 5 ký tự");
+                        } else updateAccountBinding.fullName.setError(null);
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+
+                    }
+                });
+
+                updateAccountBinding.numberPhone.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        if (updateAccountBinding.numberPhone.getText().toString().trim().length() != 10) {
+                            updateAccountBinding.numberPhone.setError("Số điện thoại không đúng định dạng");
+                        } else updateAccountBinding.numberPhone.setError(null);
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+
+                    }
+                });
+
+
+                updateAccountBinding.adress.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        if (updateAccountBinding.adress.getText().toString().trim().length() < 5) {
+                            updateAccountBinding.adress.setError("Địa chỉ người dùng không được nhỏ hơn 5 ký tự");
+                        } else updateAccountBinding.adress.setError(null);
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+
+                    }
+                });
+
+                updateAccountBinding.btnUpDataInfor.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (updateAccountBinding.fullName.getText().toString().trim().length() > 5
+                                && updateAccountBinding.numberPhone.getText().toString().trim().length() == 10
+                                && updateAccountBinding.adress.getText().toString().trim().length() >5 ){
+                            nguoiDung.setTenKH(updateAccountBinding.fullName.getText().toString().trim());
+                            nguoiDung.setDiaChi(updateAccountBinding.adress.getText().toString().trim());
+                            nguoiDung.setSdt(updateAccountBinding.numberPhone.getText().toString().trim());
+                            nguoiDungDAO.updateInfo(nguoiDung);
+                            Toast.makeText(ThongTinTaiKhoanShop.this,"Cập nhật thành công", Toast.LENGTH_LONG).show();
+                            dialog.dismiss();
+                            recreate();
+                        } else Toast.makeText(ThongTinTaiKhoanShop.this,"Vui lòng nhập đúng các yêu cầu!", Toast.LENGTH_LONG).show();
+                    }
+                });
+
                 dialog.show();
             }
         });

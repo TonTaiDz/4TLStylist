@@ -8,11 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.a4tlstylist.Funtions.MoneyFormat;
 import com.example.a4tlstylist.dao.DatLichDAO;
 import com.example.a4tlstylist.databinding.ActivityThongKeBinding;
 
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class ThongKeActivity extends AppCompatActivity {
 
@@ -36,8 +39,8 @@ public class ThongKeActivity extends AppCompatActivity {
         DateTimeFormatter dinhDang = DateTimeFormatter.ofPattern("d/MM/yyyy");
         String ngayDinhDang = ngayHienTai.format(dinhDang);
 
-        String ttThang = datLichDAO.getTT30() + "VND";
-        String ttngay = datLichDAO.getTT(ngayDinhDang) +"VND";
+        String ttThang = MoneyFormat.moneyFormat(datLichDAO.getTT30()) + "VND";
+        String ttngay = MoneyFormat.moneyFormat(datLichDAO.getTT(ngayDinhDang)) +"VND";
 
         int luotM = datLichDAO.getLuotKhach();
         thongKeBinding.tienThang.setText(ttThang);

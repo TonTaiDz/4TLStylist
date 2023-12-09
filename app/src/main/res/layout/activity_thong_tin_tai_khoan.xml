@@ -123,6 +123,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
+    <TextView
+        android:id="@+id/capNhatThongTin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cập nhật thông tin tài khoản"
+        android:textSize="15sp"
+        android:textColor="#FF0000"
+        app:layout_constraintTop_toBottomOf="@id/adress"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"/>
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_dangXuat"
@@ -133,7 +145,6 @@
         android:text="Đăng xuất"
         android:textColor="@color/black"
         android:textSize="18sp"
-
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_capNhatMatKhau"
         app:layout_constraintHorizontal_bias="0.496"
